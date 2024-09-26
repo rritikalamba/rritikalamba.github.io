@@ -1,9 +1,7 @@
-// next.config.js
 module.exports = {
-  output: 'export',  // Export static files for GitHub Pages
+  output: 'standalone',  // Use standalone mode for better deployment
   images: {
-    unoptimized: true,  // Disable Next.js image optimization
+    // Vercel supports Next.js image optimization, so you don't need to unoptimize
+    domains: [], // You can specify domains for external images, if needed
   },
-  basePath: '/rritikalamba.github.io',  // Replace with your repository name
-  assetPrefix: '/rritikalamba.github.io',  // Replace with your repository name
 };
