@@ -63,7 +63,7 @@ const HomePage = () => {
           animate={{ x: 0 }}
           transition={{ type: 'spring', stiffness: 120 }}
         >
-          Hi, I'm a professional model showcasing my work and projects.
+          Hi, I am a professional model showcasing my work and projects.
         </motion.p>
         <SocialIcons>
           <motion.a
