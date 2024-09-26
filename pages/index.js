@@ -1,8 +1,10 @@
-// pages/index.js
 import { styled } from '@mui/material/styles';
 import { motion } from 'framer-motion';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import Image from 'next/image';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebook, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
 
 const Container = styled('div')({
   padding: '20px',
@@ -16,12 +18,13 @@ const Container = styled('div')({
   alignItems: 'center',
 });
 
-const ProfilePicture = styled(motion.img)({
+const ProfilePictureContainer = styled(motion.div)({
   width: '300px',
   height: '300px',
   borderRadius: '50%',
   border: '5px solid #fff',
   marginBottom: '20px',
+  overflow: 'hidden',
 });
 
 const SocialIcons = styled('div')({
@@ -44,13 +47,18 @@ const HomePage = () => {
     <>
       <Navbar />
       <Container>
-        <ProfilePicture 
-          src="images/image71.jpg" 
-          alt="Profile Picture"
+        <ProfilePictureContainer
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ duration: 1 }}
-        />
+        >
+          <Image
+            src="/images/image71.jpg"
+            alt="Profile Picture"
+            width={300}
+            height={300}
+          />
+        </ProfilePictureContainer>
         <motion.h1
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -63,7 +71,7 @@ const HomePage = () => {
           animate={{ x: 0 }}
           transition={{ type: 'spring', stiffness: 120 }}
         >
-          Hi, I am a professional model showcasing my work and projects.
+          Hi, I&apos;m a professional model showcasing my work and projects.
         </motion.p>
         <SocialIcons>
           <motion.a
@@ -72,7 +80,7 @@ const HomePage = () => {
             whileHover={{ scale: 1.2 }}
             whileTap={{ scale: 0.9 }}
           >
-            <i className="fab fa-facebook"></i>
+            <FontAwesomeIcon icon={faFacebook} />
           </motion.a>
           <motion.a
             href="https://instagram.com"
@@ -80,7 +88,7 @@ const HomePage = () => {
             whileHover={{ scale: 1.2 }}
             whileTap={{ scale: 0.9 }}
           >
-            <i className="fab fa-instagram"></i>
+            <FontAwesomeIcon icon={faInstagram} />
           </motion.a>
           <motion.a
             href="https://twitter.com"
@@ -88,7 +96,7 @@ const HomePage = () => {
             whileHover={{ scale: 1.2 }}
             whileTap={{ scale: 0.9 }}
           >
-            <i className="fab fa-twitter"></i>
+            <FontAwesomeIcon icon={faTwitter} />
           </motion.a>
         </SocialIcons>
       </Container>
